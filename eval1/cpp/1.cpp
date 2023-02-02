@@ -47,10 +47,10 @@ void bessel(int a, double b, double j[], double n[])
         }
         else
         {
-            j[k + 1] = (2 * k + 1) * j[k] / b - j[k - 1];
+            j[k + 1] = ((2 * k + 1) * j[k] / b) - j[k - 1];
         }
 
-        n[k + 1] = (2 * k + 1) * n[k] / b - n[k - 1];
+        n[k + 1] = ((2 * k + 1) * n[k] / b) - n[k - 1];
     }
 }
 
