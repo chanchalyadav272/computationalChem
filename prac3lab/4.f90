@@ -11,8 +11,8 @@ implicit none
 open(1, file='4_input.txt')
 read(1,*) n
 
-allocate(new(0:n,0:n))
-do i=0,n-1
+allocate(new(0:n+1,0:n+1))
+do i=0,n
 read(1,*) new(i,0), new(i,1)
 enddo
 
@@ -22,9 +22,10 @@ call calf()
 ! print*, (new(i,j),j=0,n)
 ! enddo
 ans = new(0,1)
-do i=2,n
+do i=2,n+1
 call calprod(i-1,a)
 ans = ans + new(0,i)*prod
+print*,prod
 enddo
 
 print*, ans
@@ -33,8 +34,8 @@ end program newton
 subroutine calf()
 use q4
 integer::t,u,v
-t=n-2
-do v=2,n
+t=n-1
+do v=2,n+1
 do u=0,t
 new(u,v) = (new(u+1,v-1)-new(u,v-1))/(new(v-1,0)-new(0,0))
 enddo
