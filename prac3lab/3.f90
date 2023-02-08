@@ -26,14 +26,14 @@ enddo
 
 read(1,*) a
 
-call CalPol(a)
+call Calterm(a)
 
 end program cal
 
 subroutine CalTerm(m)
 use ip
 
-real::m, prod
+real::m, prod,sum=0
 
 do i=1,num
 prod = 1
@@ -47,21 +47,8 @@ endif
 
 enddo
 
-z(i)= y(i) * prod
+sum=sum+y(i) * prod
 enddo
-
+print*, sum
 end subroutine CalTerm
 
-subroutine CalPol(n)
-use ip
-real::n,sum=0
-
-call CalTerm(n)
-
-do k=1,num
-sum = sum + z(k)
-enddo
-
-print*, sum
-
-end subroutine CalPol

@@ -1,6 +1,6 @@
 module c1
 real(kind = 8),parameter::pi= acos(-1.0)
-integer::n=6,i,j,k,b
+integer::n=4,i,j,k,b
 real(kind=8)::x,ans
 real(kind=8),dimension(:,:),allocatable::f
 real(kind=8),dimension(:), allocatable::c,t
@@ -12,12 +12,10 @@ program ex
 use c1
 implicit none
 ! read*, n,x
-allocate(f(0:n,0:1))
-allocate(c(0:n))
-allocate(t(0:n))
+allocate(f(0:n,0:1),c(0:n),t(0:n))
 
 do i=0,n
-f(i,0) = cos((2*i+1)*pi/(2*n+2))
+f(i,0) = 2*cos((2*i+1)*pi/(2*n+2))
 f(i,1) = exp(f(i,0))
 enddo
 
@@ -28,7 +26,7 @@ call calc()
 do b=0,20
 ans = 0
 x = -1+ b*(2/20.0)
-! x=1
+! x=2
 call calt(x)
 do i=0,n
 

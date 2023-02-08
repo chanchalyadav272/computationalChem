@@ -12,8 +12,7 @@ program sx
 use c2
 implicit none
 read*, n,m
-allocate(q(0:n,0:n))
-allocate(x(0:n))
+allocate(q(0:n,0:n),x(0:n))
 
 do i=0,n
 x(i) = cos((2*i+1)*pi/(2*n+2))
@@ -45,12 +44,11 @@ subroutine dif()
 use c2
 
 integer::a,r,c
-a=n-1   
+
 do c = 1,n
-do r=0,a
-q(r,c) = (q(r+1,c-1)-q(r,c-1))/(x(c)-x(0))
+do r=0,n-c
+q(r,c) = (q(r+1,c-1)-q(r,c-1))/(x(r+c)-x(r))
 enddo
-a=a-1
 enddo
 
 

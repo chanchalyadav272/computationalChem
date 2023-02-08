@@ -1,12 +1,7 @@
 module q4
-integer::n,i,j,k,l,c
-real, dimension(0:4)::x
-real, dimension(0:4)::y
-real, dimension(0:4)::f
+integer::n,i,j
+real, dimension(:,:), allocatable:: new
 real:: a, ans=0, prod, val
-
-
-
 
 end module q4
 
@@ -16,51 +11,38 @@ implicit none
 open(1, file='4_input.txt')
 read(1,*) n
 
-do c = 0,n-1
-read(1,*) x(c), y(c)
+allocate(new(0:n+1,0:n+1))
+do i=0,n
+read(1,*) new(i,0), new(i,1)
 enddo
 
 read(1,*) a
-
-call CalF()
-
-do k = 0,n-1
-call calprod(k,a)
-if(k==0) then
-ans = ans + f(0)
-elseif(k==1) then
-ans = ans + f(1)*prod
-else
-call calfhigh(k)
-ans = ans + val*prod
-endif
+call calf()
+! do i=0,n
+! print*, (new(i,j),j=0,n)
+! enddo
+ans = new(0,1)
+do i=2,n+1
+call calprod(i-1,a)
+ans = ans + new(0,i)*prod
+print*,prod
 enddo
 
 print*, ans
-
-
-
 end program newton
 
-subroutine CalF()
+subroutine calf()
 use q4
-integer ::v
-f(0) = y(0)
+integer::t,u,v
 
-do v=1,n-1
-f(v)= (y(v) - y(v-1))/(x(v)-(x(v-1)))
+do v=2,n+1
+do u=0,n+1-v
+new(u,v) = (new(u+1,v-1)-new(u,v-1))/(new(v+u-1,0)-new(u,0))
 enddo
 
-end subroutine Calf
+enddo
 
-subroutine CalfHigh(m)
-use q4
-integer::m
-
-val= (f(m) - f(m-1))/(x(m)-x(m-2))
-
-end subroutine CalfHigh
-
+end subroutine calf
 
 subroutine CalProd(g,h)
 use q4
@@ -68,9 +50,7 @@ integer::g
 real::h
 prod =1
 do j=0,g-1
-prod = prod * (h-x(j))
+prod = prod * (h-new(j,0))
 enddo
 
 end subroutine CalProd
-
-

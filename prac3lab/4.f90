@@ -34,12 +34,12 @@ end program newton
 subroutine calf()
 use q4
 integer::t,u,v
-t=n-1
+
 do v=2,n+1
-do u=0,t
-new(u,v) = (new(u+1,v-1)-new(u,v-1))/(new(v-1,0)-new(0,0))
+do u=0,n+1-v
+new(u,v) = (new(u+1,v-1)-new(u,v-1))/(new(v+u-1,0)-new(u,0))
 enddo
-t=t-1
+
 enddo
 
 end subroutine calf
