@@ -4,9 +4,6 @@ real, dimension(:), allocatable::x
 real, dimension(:), allocatable::y
 real:: xsum, ysum, m,c,st,sr,r, x2sum, prodSum
 
-
-
-
 end module q1
 
 
@@ -15,9 +12,6 @@ use q1
 implicit none
 open(1,file='1_input.txt')
 read(1,*) n
-
-
-
 
 allocate(x(n))
 allocate(y(n))

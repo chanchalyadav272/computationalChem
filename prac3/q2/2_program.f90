@@ -4,11 +4,6 @@ program Calculate
 
     read*,n
     call printSinX(n)
-
-
-
-
-
     
 end program Calculate
 

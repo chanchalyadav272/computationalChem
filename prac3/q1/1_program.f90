@@ -4,8 +4,6 @@ program pib
     read*,n
     call CalPsi(n) 
 
-   
-
 end program pib
 
 

@@ -7,25 +7,34 @@ program maxNum
 
     read(1,*) a,b,c
 
-    if(a>=b) then
-        if(b>=c) then
-            mx= a
-        elseif(b<=c .and. a>=c) then
-            mx=a
-        else
-            mx = c
-        endif
-    else
-        if(a>=c) then
-            mx= b
-        elseif(a<=c .and. b>=c) then
-            mx=b
-        else 
-            mx= c
+    mx =a
 
-        endif
-
+    if(b>mx) then
+        mx = b
     endif
+    if(c>mx) then
+        mx = c
+    endif
+
+    ! if(a>=b) then
+    !     if(b>=c) then
+    !         mx= a
+    !     elseif(b<=c .and. a>=c) then
+    !         mx=a
+    !     else
+    !         mx = c
+    !     endif
+    ! else
+    !     if(a>=c) then
+    !         mx= b
+    !     elseif(a<=c .and. b>=c) then
+    !         mx=b
+    !     else 
+    !         mx= c
+
+    !     endif
+
+    ! endif
 
         write(2,*) "using if else max = ", mx
 

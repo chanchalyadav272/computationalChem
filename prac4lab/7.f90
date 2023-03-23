@@ -15,25 +15,30 @@ allocate(f(0:n,0:1),c(0:n),t(0:n))
 
 do i =0,n
 f(i,0)=cos((2*i+1)*pi/(2*n+2))
+print*,f(i,0)
 f(i,1)= exp(f(i,0))
 enddo
 
 call coeff()
-
-do b=0,20
-ans = 0
-x = -1 + b*(2/20.0)
-!x=2
+print*, c
+x = 1
 call term(x)
+print*, t
 
-do i = 0 ,n
-ans = ans + c(i)*t(i)
-enddo
+! do b=0,20
+! ans = 0
+! x = -1 + b*(2/20.0)
+! !x=2
+! call term(x)
 
-print*, x, ans
-enddo
+! do i = 0 ,n
+! ans = ans + c(i)*t(i)
+! enddo
 
-print*, (f(i,0), i=0,n)
+! print*, x, ans
+! enddo
+
+! print*, (f(i,0), i=0,n)
 
 end program ex
 

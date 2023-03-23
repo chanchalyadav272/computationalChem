@@ -1,6 +1,5 @@
 program value1
 implicit none
-real::a
 integer::i=5,j=4,k=3
 
 print*, i*j+(i/k)

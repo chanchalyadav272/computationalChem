@@ -1,19 +1,20 @@
 program arr_sum
 implicit none
 
-integer:: rw, clm, i,j, sm=0
+integer:: rw, clm, i,j
+real::sm=0
 real, dimension(:,:), allocatable :: arr
 read*, rw, clm
 
 allocate(arr(rw,clm))
 
 do i=1, rw
-	read*, (arr(i,j), j = 1, clm)
+read*, (arr(i,j), j = 1, clm)
 enddo
 
 do i=1,rw
 do j=1,clm
-	sm = sm + arr(i,j)
+sm = sm + arr(i,j)
 enddo
 enddo
 

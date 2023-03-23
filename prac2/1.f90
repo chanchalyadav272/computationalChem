@@ -2,8 +2,8 @@ Program arr
 implicit none
 
 integer::n,i
-integer, dimension(:), allocatable :: numbers
 
+integer, dimension(:), allocatable :: numbers
 
 
 read*, n

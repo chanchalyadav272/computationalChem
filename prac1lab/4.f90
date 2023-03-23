@@ -15,16 +15,4 @@ PRINT*,"B+A/C = ", B+(REAL(A)/REAL(C))
 
 PRINT*,"A/B+C = ", (REAL(A)/REAL(B))+C
 
-
-
-
-
-
-
-
-
-
-
-
-
 end program calc

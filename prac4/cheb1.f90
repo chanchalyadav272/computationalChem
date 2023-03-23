@@ -15,7 +15,7 @@ implicit none
 allocate(f(0:n,0:1),c(0:n),t(0:n))
 
 do i=0,n
-f(i,0) = 2*cos((2*i+1)*pi/(2*n+2))
+f(i,0) = cos((2*i+1)*pi/(2*n+2))
 f(i,1) = exp(f(i,0))
 enddo
 
