@@ -2,7 +2,6 @@ module q3
     integer(kind=8)::i,j,k
     real(kind=8), dimension(:,:),allocatable::x
     real(kind=8)::f,g,e
-
 end module q3
 
 program newton
