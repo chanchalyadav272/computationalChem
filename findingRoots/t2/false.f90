@@ -33,7 +33,7 @@ program root
         if(d(i,5)==0) then
             print*, d(i,4), "is a root"
         endif
-    else if(d(i,3)*d(i,5)<=0) then 
+    else if(d(i,3)*d(i,5)<0) then 
         i=1
         do
             call bis
