@@ -29,11 +29,15 @@ program root
         x(i,3)=f
 
         x(i,4) = abs((x(i,2)-x(i-1,2))/x(i,2))
-        if(x(i,4)<=e) then
+        ! if(x(i,4)<=e) then
+        !     exit
+        ! endif
+
+        if(x(i,3)==0) then 
             exit
         endif
 
-        ! if(i==9) then
+        ! if(i==1000) then
         !     exit
         ! endif
 
